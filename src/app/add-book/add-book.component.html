@@ -1,39 +1,41 @@
 <div class="card border border-dark mb-3">
-    <div class="card-header">
-      <h1>Add Book</h1>
-    </div>
-    <div class="card-body row">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="form-control-label mb-1">Title</label>
-                    <input type="text" class="form-control mb-2" />
+    <form #myForm="ngForm" (ngSubmit)="addBook(myForm);">
+        <div class="card-header">
+          <h1>Add Book</h1>
+        </div>
+        <div class="card-body row">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label mb-1">Title</label>
+                        <input type="text" class="form-control mb-2" [(ngModel)]="_newBook.title" minlength="1" id="title" name="title" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label mb-1">Cover</label>
+                        <input type="file" class="form-control mb-2" (change)="onFileSelected($event)" minlength="1" id="cover" name="cover" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label mb-1">Genre</label>
+                        <input type="text" class="form-control mb-2" [(ngModel)]="_newBook.genre" minlength="1" id="genre" name="genre" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label mb-1">Author</label>
+                        <input type="text" class="form-control mb-2" [(ngModel)]="_newBook.author" minlength="1" id="author" name="author" required />
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label mb-1">Cover</label>
-                    <input type="file" class="form-control mb-2" id="inputGroupFile01">
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label mb-1">Genre</label>
-                    <input type="text" class="form-control mb-2" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label mb-1">Author</label>
-                    <input type="text" class="form-control mb-2" />
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label mb-1">Content</label>
+                        <textarea class="form-control" [(ngModel)]="_newBook.content" id="content" name="content" rows="10" required></textarea>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="form-control-label mb-1">Content</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+            <div class="row">
+                <div class="h-100 d-flex justify-content-center align-items-center">
+                    <button mat-raised-button color="primary" class="m-2 my-btn" type="submit">Add</button>
+                    <button mat-raised-button color="accent" class="m-2 my-btn" (click)="myForm.resetForm()">Clear</button>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="h-100 d-flex justify-content-center align-items-center">
-                <button mat-raised-button color="primary" class="m-2 my-btn">Add</button>
-                <button mat-raised-button color="accent" class="m-2 my-btn">Clear</button>
-            </div>
-        </div>
-    </div>
+    </form>
 </div>

@@ -1,24 +1,20 @@
 <div class="container">
-        <mat-tab-group>
-            <mat-tab label="All">
-                <div class="container my-container">
-                    <div class="row" style="margin-top: 30px;">
-                        <app-book-list-item class="col-md-5"></app-book-list-item>
-                        <app-book-list-item class="col-md-5"></app-book-list-item>
-                        <app-book-list-item class="col-md-5"></app-book-list-item>
-                        <app-book-list-item class="col-md-5"></app-book-list-item>
-                    </div>
+    <mat-tab-group>
+        <mat-tab label="All">
+            <div class="container my-container">
+                <div class="row" style="margin-top: 30px;">
+                    <!-- Display books sorted by Title prop -->
+                    <app-book-list-item class="col-md-6" *ngFor="let bookItem of booksListByTitle" [setBookItem]="bookItem"></app-book-list-item>
                 </div>
-            </mat-tab>
-            <mat-tab label="Recommended">
-                <div class="container" style="margin-top: 30px;">
-                    <div class="row">
-                        <app-book-list-item class="col-md-5"></app-book-list-item>
-                        <app-book-list-item class="col-md-5"></app-book-list-item>
-                        <app-book-list-item class="col-md-5"></app-book-list-item>
-                        <app-book-list-item class="col-md-5"></app-book-list-item>
-                    </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Recommended">
+            <div class="container my-container">
+                <div class="row" style="margin-top: 30px;">
+                    <!-- Display books sorted by Author's name-->
+                    <app-book-list-item class="col-md-6" *ngFor="let bookItem of booksListByAuthor" [setBookItem]="bookItem"></app-book-list-item>
                 </div>
-            </mat-tab>
-        </mat-tab-group>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
 </div>

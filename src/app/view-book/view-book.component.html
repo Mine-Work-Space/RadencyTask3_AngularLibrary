@@ -1,1 +1,32 @@
-<p>view-book works!</p>
+<div class="container">
+  <div class="d-flex flex-wrap justify-content-between align-items-center py-1 border-bottom">
+    <h1 mat-dialog-title class="text-center">Details</h1>
+    <button mat-dialog-close class="btn btn-outline">
+      <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 96 960 960" width="40"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg>
+    </button>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-5">
+      <img class="details-image" src="data:image/png;base64, {{_selectedBookItem.cover}}" alt="https://climate.onep.go.th/wp-content/uploads/2020/01/default-image.jpg"/>
+      <div class="row">
+        <div class="col-6" mat-dialog-content>Rating: {{_selectedBookItem.rating}}</div>
+        <div class="col-6" mat-dialog-content>Reviews: {{_selectedBookItem.reviews.length}}</div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <h2>{{_selectedBookItem.title}}</h2>
+      <h3>{{_selectedBookItem.author}}, {{_selectedBookItem.genre}}</h3>
+      <br/>
+      <p style="word-wrap: break-word;">{{_selectedBookItem.content}}</p>
+    </div>
+  </div>
+  <hr/>
+  <div class="reviews-list">
+    <div *ngFor="let review of _selectedBookItem.reviews">
+      <h3>{{review.reviewer}}</h3>
+      <p>{{review.message}}</p>
+      <hr/>
+    </div>
+  </div>
+</div>
