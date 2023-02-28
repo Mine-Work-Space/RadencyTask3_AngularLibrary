@@ -20,7 +20,6 @@ export class AddBookComponent {
     this._newBook.content = form.value.content;
 
     this.httpClient.post<any>('https://localhost:5000/api/books/save', this._newBook).subscribe(data => {
-      console.log(data.id);
       if(data.id != -1) {
         alert("Book saved successfully");
         this._newBook = new AddBookModel("", "", "", "", "");

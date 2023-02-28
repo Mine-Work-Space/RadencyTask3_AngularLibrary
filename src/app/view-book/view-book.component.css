@@ -1,0 +1,9 @@
+.details-image {
+    max-width: 260px;
+    box-shadow: 0px 0px 20px gray;
+}
+.reviews-list {
+    max-height: 250px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
