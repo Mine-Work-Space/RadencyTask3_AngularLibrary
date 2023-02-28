@@ -1,0 +1,45 @@
+.card {
+    border: 1px solid black;
+    border-radius: 6px;
+    transition: 400ms;
+}
+.card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.c-details span {
+    font-weight: 300;
+    font-size: 13px
+}
+.my-btn {
+    height:40px;
+}
+.icon {
+    max-width: 100px;
+    max-height: 100px;
+    background-color: #eee;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badge span {
+    background-color: #fffbec;
+    width: 60px;
+    height: 25px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    display: flex;
+    color: #fed85d;
+    justify-content: center;
+    align-items: center
+}
+
+.text1 {
+    font-size: 14px;
+    font-weight: 600
+}
+.text2 {
+    color: #616e86;
+}

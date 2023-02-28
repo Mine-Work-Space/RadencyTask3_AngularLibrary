@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -57,6 +58,13 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+
+          "options": {
+            "sslKey": "./cert.pem",
+            "sslCert": "./my-key.pem",
+            "ssl":true
+          },
+
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
@@ -87,6 +95,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -94,5 +103,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "cfad63c5-9301-4de7-85f1-459f28130d54"
   }
 }
