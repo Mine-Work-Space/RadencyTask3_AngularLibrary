@@ -15,10 +15,10 @@
     height:40px;
 }
 .icon {
-    max-width: 130px;
-    max-height: 100px;
+    max-width: auto;
+    max-height: 120px;
     background-color: #eee;
-    border-radius: 5px;
+    border-radius: 2px;
     display: flex;
     align-items: center;
     justify-content: center;

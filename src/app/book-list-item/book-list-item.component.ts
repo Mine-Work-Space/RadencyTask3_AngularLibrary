@@ -6,7 +6,7 @@ import {Book} from '../shared/models/Book';
   styleUrls: ['./book-list-item.component.css']
 })
 export class BookListItemComponent {
-  _bookItem: Book = new Book(-1, "Default Title", "Default Author", 0, 0);
+  _bookItem: Book = new Book(-1, "Default Title", "Default Author", 0, 0, "");
   @Input()
   set setBookItem(bookItem: Book) {
     this._bookItem = bookItem;

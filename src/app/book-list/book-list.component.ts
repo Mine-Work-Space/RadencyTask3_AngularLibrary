@@ -24,7 +24,7 @@ export class BookListComponent implements OnInit {
       .subscribe((result:any)=> { 
         let res = JSON.parse(JSON.stringify(result));
         for (let book of res) {
-            this.booksListByTitle.push(new Book(book.id, book.title, book.author, book.rating, book.reviewsNumber));
+            this.booksListByTitle.push(new Book(book.id, book.title, book.author, book.rating, book.reviewsNumber, book.cover));
         }
        });
   }
@@ -33,7 +33,7 @@ export class BookListComponent implements OnInit {
       .subscribe((result:any)=> { 
         let res = JSON.parse(JSON.stringify(result));
         for (let book of res) {
-            this.booksListByAuthor.push(new Book(book.id, book.title, book.author, book.rating, book.reviewsNumber));
+            this.booksListByAuthor.push(new Book(book.id, book.title, book.author, book.rating, book.reviewsNumber, book.cover));
         }
        });
   }
