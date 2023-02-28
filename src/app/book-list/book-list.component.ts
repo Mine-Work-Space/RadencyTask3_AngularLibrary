@@ -8,24 +8,33 @@ import { Book } from '../shared/models/Book';
   styleUrls: ['./book-list.component.css'],
 })
 export class BookListComponent implements OnInit {
-  booksList:Book[] = [];
+  booksListByTitle:Book[] = [];
+  booksListByAuthor:Book[] = [];
 
   constructor(private httpClient: HttpClient){
-    this.booksList=[];
+    this.booksListByTitle=[];
+    this.booksListByAuthor=[];
   }
   ngOnInit(): void {
-    this.getBooksList(); 
+    this.getBooksListByTitle(); 
+    this.getBooksListByAuthor(); 
   }
-  getBooksList() {
-    //let res = JSON.parse(
+  getBooksListByTitle() {
     this.httpClient.get('https://localhost:5000/api/books?order=title')
       .subscribe((result:any)=> { 
-
         let res = JSON.parse(JSON.stringify(result));
         for (let book of res) {
-            this.booksList.push(new Book(book.id, book.title, book.author, book.rating, book.reviewsNumber));
+            this.booksListByTitle.push(new Book(book.id, book.title, book.author, book.rating, book.reviewsNumber));
         }
-        
+       });
+  }
+  getBooksListByAuthor() {
+    this.httpClient.get('https://localhost:5000/api/books?order=author')
+      .subscribe((result:any)=> { 
+        let res = JSON.parse(JSON.stringify(result));
+        for (let book of res) {
+            this.booksListByAuthor.push(new Book(book.id, book.title, book.author, book.rating, book.reviewsNumber));
+        }
        });
   }
 }
