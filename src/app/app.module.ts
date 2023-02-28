@@ -13,7 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { BookService } from './shared/services/BookService';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +32,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [ BookService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,6 +4,4 @@
 }
 .reviews-list {
     max-height: 250px;
-    overflow: hidden;
-    overflow-y: scroll;
 }

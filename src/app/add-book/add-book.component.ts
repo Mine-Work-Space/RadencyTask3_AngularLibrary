@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AddBookModel } from '../shared/models/AddBookModel';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { BookService } from '../shared/services/BookService';
 @Component({
   selector: 'app-add-book',
   templateUrl: './add-book.component.html',
@@ -11,19 +12,19 @@ export class AddBookComponent {
   _newBook:AddBookModel = new AddBookModel("", "", "", "", "");
   _imageFile: File | null = null;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private bookService:BookService) { }
 
   addBook(form: NgForm) {
     this._newBook.title = form.value.title;
     this._newBook.author = form.value.author;
     this._newBook.genre = form.value.genre;
     this._newBook.content = form.value.content;
-
-    this.httpClient.post<any>('https://localhost:5000/api/books/save', this._newBook).subscribe(data => {
-      if(data.id != -1) {
-        alert("Book saved successfully");
+    
+    this.bookService.saveOrUpdateBook(this._newBook).subscribe(result => {
+      if (result.id != -1) {
+        alert("Book was updated successfully");
         this._newBook = new AddBookModel("", "", "", "", "");
-      }
+      } 
       else {
         alert("Input data is not valid");
       }

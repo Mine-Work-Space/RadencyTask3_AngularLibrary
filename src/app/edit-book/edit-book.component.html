@@ -6,20 +6,32 @@
       </button>
     </div>
     <br>
-    <form #myForm="ngForm" (ngSubmit)="updateBook(myForm);">
+    <form #myForm="ngForm" (ngSubmit)="updateBook();">
         <div class="row">
       <div class="col-md-5">
-        <img class="details-image" src="data:image/png;base64, {{_selectedBookItem.cover}}" alt="https://climate.onep.go.th/wp-content/uploads/2020/01/default-image.jpg"/>
+        <img class="details-image" src="data:image/png;base64, {{_editBook.cover}}" alt="https://climate.onep.go.th/wp-content/uploads/2020/01/default-image.jpg"/>
         <div class="row">
-          <div class="col-6" mat-dialog-content>Rating: {{_selectedBookItem.rating}}</div>
-          <div class="col-6" mat-dialog-content>Reviews: {{_selectedBookItem.reviews.length}}</div>
+            <input type="file" class="form-control m-2" style="width:260px" (change)="onFileSelected($event)" minlength="1" id="cover" name="cover" required />
+            <div class="col-6" mat-dialog-content>Rating: {{_selectedBookItem.rating}}</div>
+            <div class="col-6" mat-dialog-content>Reviews: {{_selectedBookItem.reviews.length}}</div>
         </div>
       </div>
       <div class="col-md-7">
-        <input type="text" class="form-control mb-2" [(ngModel)]="_selectedBookItem.title" minlength="1" id="title" name="title" required />
-        <input type="text" class="form-control mb-2" [(ngModel)]="_selectedBookItem.author" minlength="1" id="author" name="author" required />
+        <input type="text" class="form-control mb-2" [(ngModel)]="_editBook.title" minlength="1" id="title" name="title" required value="{{_editBook.title}}" />
+        <div class="form-group">
+            <label for="author">Genre:</label>
+            <input type="text" class="form-control mb-2" [(ngModel)]="_editBook.author" minlength="1" id="author" name="author" required value="{{_editBook.author}}" />
+        </div>
+        <div class="form-group">
+            <label for="genre">Genre:</label>
+            <input type="text" class="form-control mb-2" [(ngModel)]="_editBook.genre" minlength="1" id="genre" name="genre" required value="{{_editBook.genre}}" />
+        </div>
+        <div class="form-group">
+            <label for="content">Content:</label>
+            <textarea class="form-control my-textarea" [(ngModel)]="_editBook.content" id="content" name="content">{{_editBook.content}}</textarea>
+        </div>
         <br/>
-        <textarea style="word-wrap: break-word;" [(ngModel)]="_selectedBookItem.content">{{_selectedBookItem.content}}</textarea>
+        <button mat-raised-button color="primary" class="m-2 my-btn" type="submit">Update selected book</button>
       </div>
     </div>
     <hr/>
